@@ -12,3 +12,8 @@ We plan to open-source:
 - [ ] Pretrained checkpoints  
 - [ ] Data preparation / preprocessing scripts  
 - [ ] Reproducible configs & logs
+
+## Planned Timeline
+- ✅ Repo created: 2025-09-05
+- ⏳ Decision / camera-ready: TBA
+- 🚀 Code release: TBA
