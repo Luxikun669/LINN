@@ -17,7 +17,7 @@ We plan to open-source:
 > **Please wear headphones.**  
 We host interactive audio samples (mono input, ground-truth, and multiple baselines vs. **LINN**) on a separate web page:
 
-👉 **Demo page:** https://<YOUR_GITHUB_USERNAME>.github.io/LINN/  
+👉 **Demo page:** [https://luxikun669.github.io/LINN/]  
 
 **What you’ll find:**
 - Abstract
