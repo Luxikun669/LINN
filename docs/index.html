@@ -57,10 +57,7 @@
     <section class="card">
       <h2>Abstract</h2>
       <p class="abstract">
-        High-fidelity binaural audio synthesis is crucial for immersive experiences, but existing methods require extensive computational resources, limiting their on-device application. To address this, we propose the Lightweight Implicit Neural Network (LINN), a novel two-stage framework. LINN first generates initial estimates using time-domain warping, which are then refined by an Implicit Binaural Corrector (IBC) module. IBC is an implicit neural network that predicts amplitude and phase corrections directly in the coordinate system, resulting in a highly compact model architecture.
-      </p>
-      <p class="abstract">
-        Experimental results show that LINN achieves statistically comparable perceptual quality to the best-performing baseline while significantly improving computational efficiency. Compared to the most efficient existing method, our model uses 3.6× fewer parameters and substantially fewer multiply–accumulate operations (MACs), enabling high-fidelity on-device spatial audio applications.
+        High-fidelity binaural audio synthesis is crucial for immersive experiences, but existing methods require extensive computational resources, limiting their on-device application. To address this, we propose the Lightweight Implicit Neural Network (LINN), a novel two-stage framework. LINN first generates initial estimates using a time-domain warping, which is then refined by an Implicit Binaural Corrector (IBC) module. IBC is an implicit neural network that predicts amplitude and phase corrections directly in the coordinate system, resulting in a highly compact model architecture. Experimental results show that LINN achieves statistically comparable perceptual quality to the best-performing baseline model while significantly improving computational efficiency. Compared to the most efficient existing method, our model has 3.6 times fewer parameters and significantly fewer compute operations (MACs). This demonstrates that our approach effectively addresses the trade-off between synthesis quality and computational efficiency, providing a new solution for high-fidelity on-device spatial audio applications.
       </p>
     </section>
 
@@ -173,3 +170,4 @@
   </script>
 </body>
 </html>
+
