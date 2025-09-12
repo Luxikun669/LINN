@@ -4,13 +4,17 @@
   <meta charset="utf-8">
   <title>Lightweight Implicit Neural Network for Binaural Audio Synthesis</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <meta name="description" content="Audio samples for LINN (Lightweight Implicit Neural Network for Binaural Audio Synthesis)">
+  <meta name="description" content="LINN: a two-stage lightweight implicit neural network for binaural audio that matches top perceptual quality with fewer params and fewer MACs.">
   <style>
     :root{ --maxw:1100px; --radius:16px; --shadow:0 8px 24px rgba(0,0,0,.08); }
     body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Helvetica,Arial,"PingFang SC","Noto Sans CJK SC","Microsoft Yahei",sans-serif; margin:0; color:#222; background:#fafafa; line-height:1.6;}
     header{max-width:var(--maxw); margin:48px auto 16px; padding:0 16px; text-align:center;}
     h1{font-size:40px; line-height:1.15; margin:0 0 8px; font-weight:800;}
-    .authors{color:#666; margin:8px 0 24px;}
+    .authors{color:#333; margin:8px 0 10px;}
+    .authors .star{font-weight:700; vertical-align:super; font-size:0.75em; margin-left:2px;}
+    .affils{color:#666; font-size:14px; line-height:1.45; margin-top:6px;}
+    .contact{color:#666; font-size:14px; margin-top:4px;}
+    .contact a{color:#3366cc; text-decoration:none;}
     .note{display:inline-block; background:#fff7e6; border:1px solid #ffd591; color:#ad6800; padding:6px 10px; border-radius:999px; font-size:14px; margin-top:12px;}
     .container{max-width:var(--maxw); margin:0 auto; padding:0 16px 80px;}
     .card{background:#fff; border-radius:var(--radius); box-shadow:var(--shadow); padding:24px; margin:24px 0;}
@@ -20,6 +24,7 @@
     .colhead{font-weight:700; color:#333; text-align:center;}
     .rowhead{font-weight:700; color:#444;}
     audio{width:100%;}
+    .dur{font-size:12px; color:#666; text-align:right; margin-top:4px;}
     .footer{color:#666; text-align:center; font-size:14px; margin-top:28px;}
     .fine{color:#888; font-size:13px;}
     @media (max-width: 900px){
@@ -32,7 +37,18 @@
 <body>
   <header>
     <h1>Lightweight Implicit Neural Network<br/>for Binaural Audio Synthesis</h1>
-    <div class="authors">Xikun Lu, Fang Liu, Weizhi Shi, Jinqiu Sang</div>
+
+    <div class="authors">
+      Xikun Lu, Fang Liu, Weizhi Shi,
+      Jinqiu Sang<span class="star" title="Corresponding author">*</span>
+      <div class="affils">
+        Shanghai Institute of Artificial Intelligence for Education, East China Normal University, China<br>
+        School of Computer Science and Technology, East China Normal University, China<br>
+        Department of Big Data and Information Engineering, Guizhou Industry Polytechnic College, China
+      </div>
+      <div class="contact">* Corresponding author: <a href="mailto:jqsang@mail.ecnu.edu.cn">jqsang@mail.ecnu.edu.cn</a></div>
+    </div>
+
     <div>ICASSP 2026 (under review)</div>
     <div class="note">Please wear headphones when listening.</div>
   </header>
@@ -41,19 +57,21 @@
     <section class="card">
       <h2>Abstract</h2>
       <p class="abstract">
-        High-fidelity binaural audio synthesis is crucial for immersive experiences, but existing methods require extensive computational resources, limiting their on-device application. To address this, we propose the Lightweight Implicit Neural Network (LINN), a novel two-stage framework. LINN first generates initial estimates using a time-domain warping, which is then refined by an Implicit Binaural Corrector (IBC) module. IBC is an implicit neural network that predicts amplitude and phase corrections directly in the coordinate system, resulting in a highly compact model architecture. Experimental results show that LINN achieves statistically comparable perceptual quality to the best-performing baseline model while significantly improving computational efficiency. Compared to the most efficient existing method, our model has 3.6 times fewer parameters and significantly fewer compute operations (MACs). This demonstrates that our approach effectively addresses the trade-off between synthesis quality and computational efficiency, providing a new solution for high-fidelity on-device spatial audio applications.
+        High-fidelity binaural audio synthesis is crucial for immersive experiences, but existing methods require extensive computational resources, limiting their on-device application. To address this, we propose the Lightweight Implicit Neural Network (LINN), a novel two-stage framework. LINN first generates initial estimates using time-domain warping, which are then refined by an Implicit Binaural Corrector (IBC) module. IBC is an implicit neural network that predicts amplitude and phase corrections directly in the coordinate system, resulting in a highly compact model architecture.
+      </p>
+      <p class="abstract">
+        Experimental results show that LINN achieves statistically comparable perceptual quality to the best-performing baseline while significantly improving computational efficiency. Compared to the most efficient existing method, our model uses 3.6× fewer parameters and substantially fewer multiply–accumulate operations (MACs), enabling high-fidelity on-device spatial audio applications.
       </p>
     </section>
 
     <section class="card" id="in-domain">
-      <h2>Samples (In-domain)</h2>
+      <h2>Samples from Binaural Speech Datasets</h2>
       <div class="mount"></div>
     </section>
 
     <div class="footer">
       <div class="fine">
-        This page was built using the <em>Academic Project Page Template</em>,
-        adopted from the <em>Nerfies</em> project page.
+        This page was built using the <em>Academic Project Page Template</em>, adopted from the <em>Nerfies</em> project page.
         You are free to borrow the source of this website; please link back to this page in the footer.
       </div>
       <div class="fine">
@@ -63,7 +81,7 @@
   </div>
 
   <script>
-    // ===== 配置：方法列（与转码后的文件名后缀对应） =====
+
     const methods = [
       { key: 'mono',         name: 'Mono' },
       { key: 'gt',           name: 'Groundtruth' },
@@ -75,27 +93,37 @@
       { key: 'linn',         name: 'LINN (Ours)' }
     ];
 
-    // ===== 样本列表（与 s01, s02... 对应）=====
+
     const samples_in = [
-      { id: 's01', title: 'S01' },
-      { id: 's02', title: 'S02' },
-      { id: 's03', title: 'S03' },
-      { id: 's04', title: 'S04' },
-      { id: 's05', title: 'S05' },
+      { id: 's01', title: 'Sample1' },
+      { id: 's02', title: 'Sample2' },
+      { id: 's03', title: 'Sample3' },
+      { id: 's04', title: 'Sample4' },
+      { id: 's05', title: 'Sample5' },
     ];
 
-    // 音频路径根：docs/assets/audio/in_domain/
+
     const AUDIO_BASE_IN = 'assets/audio/in_domain/';
+
 
     function getPath(base, sampleId, methodKey) {
       return `${base}${sampleId}_${methodKey}.mp3`;
+      
+      // return `${base}${sampleId}_${methodKey}.wav`;
+    }
+
+    function formatDuration(sec){
+      if (!isFinite(sec) || sec <= 0) return "--:--";
+      const m = Math.floor(sec/60);
+      const s = Math.round(sec%60);
+      return `${m}:${s.toString().padStart(2,'0')}`;
     }
 
     function renderSection(sectionId, base, samples){
       const host = document.querySelector(`#${sectionId} .mount`);
       document.documentElement.style.setProperty('--cols', methods.length);
 
-      // Header
+
       const header = document.createElement('div');
       header.className = 'grid';
       const blank = document.createElement('div');
@@ -108,7 +136,7 @@
       });
       host.appendChild(header);
 
-      // Rows
+    
       samples.forEach(s => {
         const row = document.createElement('div');
         row.className = 'grid row';
@@ -118,20 +146,30 @@
 
         methods.forEach(m => {
           const cell = document.createElement('div');
+
           const au = document.createElement('audio');
           au.setAttribute('controls', '');
           au.setAttribute('preload', 'none');
           au.src = getPath(base, s.id, m.key);
+
+          const dur = document.createElement('div');
+          dur.className = 'dur';
+          dur.textContent = '--:--';            
+
+          au.addEventListener('loadedmetadata', () => {
+            dur.textContent = formatDuration(au.duration || 0);
+          });
+
           cell.appendChild(au);
+          cell.appendChild(dur);
           row.appendChild(cell);
         });
+
         host.appendChild(row);
       });
     }
 
-    // 渲染 in-domain
     renderSection('in-domain', AUDIO_BASE_IN, samples_in);
   </script>
 </body>
 </html>
-
