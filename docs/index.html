@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>LINN: Lightweight Implicit Neural Network for Binaural Audio Synthesis</title>
+  <title>Lightweight Implicit Neural Network for Binaural Audio Synthesis</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="description" content="Audio samples for LINN (Lightweight Implicit Neural Network for Binaural Audio Synthesis)">
   <style>
@@ -31,8 +31,8 @@
 </head>
 <body>
   <header>
-    <h1>LINN: Lightweight Implicit Neural Network<br/>for Binaural Audio Synthesis</h1>
-    <div class="authors">Xikun Lu, Jinqiu Sang</div>
+    <h1>Lightweight Implicit Neural Network<br/>for Binaural Audio Synthesis</h1>
+    <div class="authors">Xikun Lu, Fang Liu, Weizhi Shi, Jinqiu Sang</div>
     <div>ICASSP 2026 (under review)</div>
     <div class="note">Please wear headphones when listening.</div>
   </header>
@@ -41,8 +41,7 @@
     <section class="card">
       <h2>Abstract</h2>
       <p class="abstract">
-        This page presents audio samples comparing mono input, ground truth, baselines
-        (WaveNet, WarpNet, BinauralGrad, NFS, DPATFNet) and our method <strong>LINN</strong>.
+        High-fidelity binaural audio synthesis is crucial for immersive experiences, but existing methods require extensive computational resources, limiting their on-device application. To address this, we propose the Lightweight Implicit Neural Network (LINN), a novel two-stage framework. LINN first generates initial estimates using a time-domain warping, which is then refined by an Implicit Binaural Corrector (IBC) module. IBC is an implicit neural network that predicts amplitude and phase corrections directly in the coordinate system, resulting in a highly compact model architecture. Experimental results show that LINN achieves statistically comparable perceptual quality to the best-performing baseline model while significantly improving computational efficiency. Compared to the most efficient existing method, our model has 3.6 times fewer parameters and significantly fewer compute operations (MACs). This demonstrates that our approach effectively addresses the trade-off between synthesis quality and computational efficiency, providing a new solution for high-fidelity on-device spatial audio applications.
       </p>
     </section>
 
@@ -135,3 +134,4 @@
   </script>
 </body>
 </html>
+
